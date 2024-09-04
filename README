@@ -1,0 +1,46 @@
+Análise de Categorias de Produtos: Automotiva vs. Artesanato
+
+Enunciado
+Este projeto realiza uma análise detalhada das categorias de produtos presentes em dois setores distintos: Automotiva e Artesanato. Utilizando dados extraídos de arquivos PDF e CSV, o objetivo é identificar padrões e proporções das categorias dentro de cada setor. A análise inclui a visualização das distribuições de produtos por categoria e setor, além da limpeza e preparação dos dados para garantir a integridade dos resultados.
+
+## Conteúdo do Projeto
+1. **Importação e Limpeza de Dados**:
+   - Importação de dados de um arquivo PDF e um arquivo CSV.
+   - Limpeza dos dados, incluindo remoção de duplicatas e tratamento de valores ausentes.
+
+2. **Análise e Visualizações**:
+   - Gráfico de barras mostrando a quantidade de categorias por indústria.
+   - Gráficos de pizza ilustrando a proporção de categorias dentro da indústria 'Automotiva'.
+   - Histograma mostrando a distribuição de produtos nas principais categorias.
+
+3. **Relatório Final**:
+   - Estrutura do relatório que inclui introdução, descrição dos dados, metodologia, análise gráfica, recomendações e conclusão.
+
+## Requisitos
+- Python 3.x
+- Bibliotecas: pandas, matplotlib, seaborn, tabula
+
+## Como Executar
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Cristina1607/An-lise-de-Categorias-de-Produtos-Automotiva-vs.-Artesanato.git
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd repo
+3. nstale as dependências:
+   ```bash
+   pip install -r requirements.txt
+4. Execute o script principal:
+   ```bash
+   python main.py
+
+Arquivos do Projeto
+- amazon_categories.pdf: Arquivo PDF contendo tabelas de categorias de produtos.
+- data.csv: Arquivo CSV com dados de produtos e categorias.
+- main.py: Script Python para análise e visualização dos dados.
+
+Contribuição
+Sinta-se à vontade para contribuir com melhorias ou correções. Crie um fork do repositório e envie um pull request com suas alterações.
+
+Licença
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
