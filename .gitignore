@@ -1,0 +1,23 @@
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+venv/
+env/
+
+# Data files
+*.csv
+*.pdf
+
+# IDE settings
+.vscode/
+.idea/
