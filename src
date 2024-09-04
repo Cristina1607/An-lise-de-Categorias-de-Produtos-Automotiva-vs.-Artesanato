@@ -1,0 +1,97 @@
+import tabula
+
+lista_tabelas = tabula.read_pdf("amazon_categories.pdf", pages="all")
+print (len(lista_tabelas))
+
+for tabela in lista_tabelas:
+    display(tabela)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Link direto para o arquivo CSV
+url = "https://drive.google.com/uc?id=1JE4-gKKgr7abGKgq3fQFz7lloK5x3Qi1"
+df = pd.read_csv(url)
+
+# Exibir as primeiras linhas do DataFrame para inspeção inicial
+print(df.head())
+
+# Resumo das categorias e contagem de produtos
+print(df['category_name'].value_counts())
+
+# Limpeza de Dados
+# Verificar duplicatas
+print(f"Número de duplicatas: {df.duplicated().sum()}")
+
+# Remover duplicatas
+df = df.drop_duplicates()
+
+# Verificar valores ausentes
+print(df.isnull().sum())
+
+# Preencher valores ausentes, se necessário (exemplo: preencher com "Desconhecido")
+df = df.fillna('Desconhecido')
+
+# Análise por Gráficos
+
+# Identificar a indústria com base na categoria
+df['industry'] = df['category_name'].apply(lambda x: 'Automotiva' if 'Automotive' in x else 'Artesanato')
+
+# Gráfico de Barras: Quantidade de Categorias por Indústria
+plt.figure(figsize=(10, 6))
+sns.countplot(data=df, x='industry', palette='viridis')
+plt.title('Quantidade de Categorias por Indústria')
+plt.xlabel('Indústria')
+plt.ylabel('Quantidade de Categorias')
+plt.show()
+
+# Gráfico de Pizza: Proporção de Categorias dentro da Indústria 'Automotiva'
+for industry in df['industry'].unique():
+    if industry == 'Artesanato':
+        continue  # Pular o gráfico para a indústria 'Artesanato'
+    
+    plt.figure(figsize=(8, 8))
+    df_industry = df[df['industry'] == industry]
+    df_industry['category_name'].value_counts().plot.pie(autopct='%1.1f%%', startangle=90, colors=sns.color_palette('viridis', df_industry['category_name'].nunique()))
+    plt.title(f'Proporção de Categorias - {industry}')
+    plt.ylabel('')
+    plt.show()
+
+# Filtrar categorias com mais de um determinado número de produtos
+top_categories = df['category_name'].value_counts().head(10).index
+df_filtered = df[df['category_name'].isin(top_categories)]
+
+plt.figure(figsize=(12, 8))
+sns.histplot(data=df_filtered, x='category_name', hue='industry', multiple='stack', palette='viridis')
+plt.title('Distribuição de Produtos nas Principais Categorias')
+plt.xlabel('Categoria')
+plt.ylabel('Contagem de Produtos')
+plt.xticks(rotation=90)
+plt.show()
+
+# Gráfico de Linha: Tendência de Popularidade das Categorias ao Longo do Tempo (se houver dados temporais)
+# df['date'] = pd.to_datetime(df['date'])
+# df_grouped = df.groupby(['date', 'industry']).size().unstack().fillna(0)
+# plt.figure(figsize=(10, 6))
+# df_grouped.plot(kind='line', figsize=(10, 6), marker='o')
+# plt.title('Tendência de Popularidade das Categorias ao Longo do Tempo')
+# plt.xlabel('Data')
+# plt.ylabel('Quantidade de Produtos')
+# plt.show()
+
+# Gráfico de Dispersão: Correlações entre Preço e Categorias (se houver atributos adicionais)
+# plt.figure(figsize=(10, 6))
+# sns.scatterplot(data=df, x='price', y='category_name', hue='industry', palette='viridis')
+# plt.title('Correlação entre Preço e Categorias')
+# plt.xlabel('Preço')
+# plt.ylabel('Categoria')
+# plt.show()
+
+# Relatório Final (exemplo de estrutura)
+# 1. Introdução
+# 2. Descrição dos Dados
+# 3. Metodologia
+# 4. Análise Gráfica
+# 5. Recomendações
+# 6. Conclusão
