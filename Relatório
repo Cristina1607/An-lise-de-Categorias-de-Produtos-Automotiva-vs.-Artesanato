@@ -1,0 +1,24 @@
+# Relatório Final: Análise de Categorias de Produtos
+
+## 1. Introdução
+Este relatório apresenta a análise das categorias de produtos nos setores Automotiva e Artesanato, baseada em dados extraídos e processados a partir de arquivos PDF e CSV.
+
+## 2. Descrição dos Dados
+Os dados foram extraídos do arquivo PDF `amazon_categories.pdf` e do arquivo CSV `data.csv`. Eles contêm informações sobre categorias de produtos, setores e contagem de produtos.
+
+## 3. Metodologia
+- **Importação de Dados**: Utilização da biblioteca `tabula` para extrair tabelas do PDF e `pandas` para ler o arquivo CSV.
+- **Limpeza de Dados**: Remoção de duplicatas e preenchimento de valores ausentes.
+- **Análise**: Criação de gráficos para visualizar a distribuição e proporção das categorias.
+
+## 4. Análise Gráfica
+- **Gráfico de Barras**: Mostra a quantidade de categorias por indústria.
+- **Gráfico de Pizza**: Representa a proporção de categorias na indústria Automotiva.
+- **Histograma**: Exibe a distribuição de produtos nas principais categorias.
+
+## 5. Recomendações
+Com base na análise, recomenda-se focar em categorias com maior número de produtos, especialmente na indústria Automotiva, para estratégias de marketing e desenvolvimento de produto.
+
+## 6. Conclusão
+A análise revelou insights importantes sobre a distribuição e proporção das categorias de produtos nos setores Automotiva e Artesanato, fornecendo uma base sólida para decisões estratégicas.
+
